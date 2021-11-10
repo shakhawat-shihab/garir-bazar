@@ -1,0 +1,17 @@
+.drawer-list-item{
+    background-color: lightgray;
+    
+}
+.offcanvas-body{
+    padding:0px !important;
+}
+@media screen and (max-width:767px) {
+    .offcanvas-start{
+        width:350px !important;
+    }
+}
+@media screen and (max-width:550px) {
+    .offcanvas-start{
+        width:70% !important;
+    }
+}
