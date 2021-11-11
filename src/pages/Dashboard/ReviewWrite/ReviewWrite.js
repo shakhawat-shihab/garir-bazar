@@ -3,8 +3,9 @@ import { useState } from "react";
 import { FloatingLabel, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
-// var Rating = require('react-rating');
 import Rating from 'react-rating';
+import axios from 'axios';
+import swal from 'sweetalert';
 
 const ReviewWrite = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -13,8 +14,18 @@ const ReviewWrite = () => {
     const onSubmit = data => {
         data.rating = rating;
         data.img = user?.photoURL || ' https://i.ibb.co/X2sVX2b/profile.png ';
-        console.log(data);
-
+        //console.log(data);
+        axios.post('http://localhost:5000/submitReview', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    swal({
+                        title: "Your Review is successfully submitted",
+                        icon: "success",
+                        button: "Ok",
+                    });
+                    reset();
+                }
+            })
     }
     //console.log(rating);
     const visibile = {
