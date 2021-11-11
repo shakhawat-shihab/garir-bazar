@@ -49,7 +49,7 @@ const NavigationBar = () => {
                             Home
                         </Nav.Link>
                         <Nav.Link as={NavLink} to='/services' activeClassName="selected" className='my-nav-link'  >
-                            Services
+                            Explore
                         </Nav.Link>
 
                         {
@@ -100,93 +100,7 @@ const NavigationBar = () => {
                                     Log In
                                 </Nav.Link>
                         }
-                        {/* {
-                            (user.displayName || user.email)
-                                ?
-                                <>
-                                    {
-                                        admin && <NavDropdown
-                                            title={
-                                                <div className='h-100 d-flex align-items-center  '>
-                                                    Manage
-                                                </div>
-                                            }
-                                            className='m-0'
-                                            id="collasible-nav-dropdown"
-                                            show={showManage}
-                                            onMouseEnter={() => { setShowManage(true) }}
-                                            onMouseLeave={() => { setShowManage(false) }}
-                                        >
-                                            <NavDropdown.Item as={NavLink} to={`${url}/manage-orders`} activeClassName="selected"  >
-                                                <MdOutlineManageAccounts />
-                                                <span className='ps-2'> Manage Orders </span>
-                                            </NavDropdown.Item>
-                                            <NavDropdown.Item as={NavLink} to={`${url}/add-service`} activeClassName="selected"  >
-                                                <AiOutlineFileAdd />
-                                                <span className='ps-2'> Add Service </span>
-                                            </NavDropdown.Item>
-                                        </NavDropdown>
-                                    }
 
-                                    <Nav.Link as={NavLink} to='/my-order' activeClassName="selected"  >
-                                        <div className="position-relative d-flex cursor-pointer">
-                                            {
-
-                                                <span className="bg-primary p-little rounded-circle fw-bold text-white position-absolute positioning">{cartLength}</span>
-                                            }
-                                            <BsFillCartFill className='fs-3' />
-                                        </div>
-                                    </Nav.Link>
-                                    <NavDropdown
-                                        title={
-                                            <div className='h-100 d-flex align-items-center  '>
-                                                {
-                                                    user.photoURL
-                                                        ?
-                                                        <img src={user.photoURL} alt="" width='55px' height='40px' className='rounded-circle ' />
-                                                        :
-                                                        <img src={login} alt="" width='55px' />
-                                                }
-                                            </div>
-                                        }
-                                        show={showUser}
-                                        onMouseEnter={() => { setShowUser(true) }}
-                                        onMouseLeave={() => { setShowUser(false) }}
-                                        className='m-0'
-                                        id="collasible-nav-dropdown" >
-                                        <NavDropdown.Item as={NavLink} to='/profile' activeClassName="selected" >
-                                            <GrEdit />
-                                            {
-                                                // !isLoading &&
-                                                <span className='ps-2'>
-                                                    {
-                                                        user.displayName ?
-                                                            user.displayName.substr(0, user?.displayName.indexOf(' ')) :
-                                                            user.displayName
-                                                    }
-                                                </span>
-                                            }
-                                        </NavDropdown.Item>
-                                        <NavDropdown.Item as={NavLink} to='/manage' activeClassName="selected"  >
-                                            <GrPerformance />
-                                            <span className='ps-2'> Setttings </span>
-                                        </NavDropdown.Item>
-                                        <NavDropdown.Divider />
-                                        <NavDropdown.Item as={NavLink} to='/login' activeClassName="selected" onClick={logOut}  >
-                                            <GoSignOut />
-                                            <span className='ps-2'> Log Out </span>
-                                        </NavDropdown.Item>
-                                    </NavDropdown>
-                                </>
-                                :
-                                <Nav.Link as={NavLink} to='/login' activeClassName="selected" className='special-link-style ' >
-                                    <OverlayTrigger placement='bottom-end' overlay={<Tooltip id="tooltip-disabled">Log In</Tooltip>}>
-                                        <div className='h-100 d-flex align-items-center'>
-                                            <img src={loginLock} alt="" width='55px' height='40px' />
-                                        </div>
-                                    </OverlayTrigger>
-                                </Nav.Link>
-                        } */}
                     </Nav>
                 </Navbar.Collapse>
                 {/* </Container> */}

@@ -8,7 +8,11 @@ import Register from './pages/LogIn/Register/Register';
 import NotFound from './pages/Shared/NotFound/NotFound';
 import PrivateRoute from './pages/LogIn/PrivateRoute/PrivateRoute';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
-// import Dashboard from './pages/Dashboard/Dashboard';
+import Services from './pages/Service/Services/Services';
+import ServiceDetails from './pages/Service/ServiceDetails/ServiceDetails';
+import Footer from './pages/Shared/Footer/Footer';
+import PurchaseService from './pages/Service/PurchaseService/PurchaseService';
+
 
 function App() {
   return (
@@ -29,8 +33,14 @@ function App() {
             <Register></Register>
           </Route>
           <Route path='/services'>
-            <h2 className='mt-5 pt-5'>Services</h2>
+            <Services></Services>
           </Route>
+          <Route path='/service/:serviceId'>
+            <ServiceDetails></ServiceDetails>
+          </Route>
+          <PrivateRoute path='/order/:serviceId'>
+            <PurchaseService></PurchaseService>
+          </PrivateRoute>
           <PrivateRoute path='/dashboard'>
             <Dashboard></Dashboard>
           </PrivateRoute>
@@ -38,6 +48,7 @@ function App() {
             <NotFound></NotFound>
           </Route>
         </Switch>
+        <Footer></Footer>
       </BrowserRouter>
     </AuthProvider>
   );

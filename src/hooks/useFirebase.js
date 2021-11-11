@@ -1,4 +1,4 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, getIdToken } from 'firebase/auth';
 import { useEffect, useState } from "react";
 import swal from 'sweetalert';
 import InitializeFirebase from '../pages/LogIn/Firebase/firebase.init';
@@ -9,6 +9,8 @@ const useFirebase = () => {
     const [admin, setAdmin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isLoadingAdmin, setIsLoadingAdmin] = useState(true);
+    const [token, setToken] = useState('');
+
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const signInUsingGoogle = () => {
@@ -75,12 +77,14 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
-                //setIsLoading(false);
-                // console.log(user);
+                getIdToken(user)
+                    .then(idToken => {
+                        setToken(idToken);
+                    })
                 fetch(`http://localhost:5000/users/${user.email}`)
                     .then(res => res.json())
                     .then(data => {
-                        console.log('email  address: ', user.email, ' isAdmin: ', data.admin)
+                        //console.log('email  address: ', user.email, ' isAdmin: ', data.admin)
                         setAdmin(data.admin);
                         setIsLoadingAdmin(false);
                     })
@@ -91,7 +95,7 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribed;
-    }, [])
+    }, [auth])
     //useEffect te  user.email asar agei ekbar run hy a jasse, jar fole  
     // http://localhost:5000/users/undefined ei link fetch korte partase na.
     // tai user load howar por e amdr admin kina check korte hbe
@@ -119,6 +123,6 @@ const useFirebase = () => {
             .then()
     }
 
-    return { signInUsingGoogle, user, setUser, error, setError, logOut, isLoading, setIsLoading, createUserByEmailPassword, signInUser, updateProfileName, saveUser, admin, isLoadingAdmin }
+    return { signInUsingGoogle, user, setUser, error, setError, logOut, isLoading, setIsLoading, createUserByEmailPassword, signInUser, updateProfileName, saveUser, admin, isLoadingAdmin, token }
 }
 export default useFirebase;

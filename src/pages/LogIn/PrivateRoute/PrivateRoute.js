@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 const PrivateRoute = (props) => {
     const { user, isLoading } = useAuth();
     const { children, ...rest } = props;
-    console.log(isLoading, user);
+    // console.log(isLoading, user);
     if (isLoading === true) {
         return (
             <div className='mt-5 pt-5 text-center' style={{ height: '100vh' }}>
