@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import useAuth from "./useAuth";
 
 const useOrder = () => {
-    const { token, user, isLoadingUser } = useAuth();
+    const { token, user, isLoading } = useAuth();
     const [orders, setOrders] = useState([]);
     const [isLoadingOrder, setIsLoadingOrder] = useState(true);
 
     useEffect(() => {
         // erkm (!isLoadingUser && token) conditio slo change korc seta ( token )
-        if (!isLoadingUser && token) {
+        if (!isLoading && token) {
+            console.log(isLoading, token);
             fetch(`https://garir-bazar.herokuapp.com/myOrder?email=${user.email}`, {
                 headers: {
                     'authorization': `Bearer ${token}`
@@ -40,7 +41,7 @@ const useOrder = () => {
                     setIsLoadingOrder(false);
                 });
         }
-    }, [user.email, token, isLoadingUser])
+    }, [user.email, token, isLoading])
 
     return { isLoadingOrder, orders, setOrders }
 }

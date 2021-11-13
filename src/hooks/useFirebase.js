@@ -74,6 +74,7 @@ const useFirebase = () => {
         })
     }
     useEffect(() => {
+        setIsLoading(true);
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
@@ -81,13 +82,13 @@ const useFirebase = () => {
                     .then(idToken => {
                         setToken(idToken);
                     })
-                fetch(`https://garir-bazar.herokuapp.com/users/${user.email}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        //console.log('email  address: ', user.email, ' isAdmin: ', data.admin)
-                        setAdmin(data.admin);
-                        setIsLoadingAdmin(false);
-                    })
+                // fetch(`https://garir-bazar.herokuapp.com/users/${user.email}`)
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         //console.log('email  address: ', user.email, ' isAdmin: ', data.admin)
+                //         setAdmin(data.admin);
+                //         setIsLoadingAdmin(false);
+                //     })
             }
             else {
                 setUser({});
@@ -99,16 +100,16 @@ const useFirebase = () => {
     //useEffect te  user.email asar agei ekbar run hy a jasse, jar fole  
     // https://garir-bazar.herokuapp.com/users/undefined ei link fetch korte partase na.
     // tai user load howar por e amdr admin kina check korte hbe
-    /*useEffect(() => {
+    useEffect(() => {
         setIsLoadingAdmin(true);
         fetch(`https://garir-bazar.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(user.email, data.admin)
+                //console.log(user.email, data.admin)
                 setAdmin(data.admin);
                 setIsLoadingAdmin(false);
             })
-    }, [user.email])*/
+    }, [user.email])
 
     function saveUser(email, displayName, method) {
         const user = { email, displayName };

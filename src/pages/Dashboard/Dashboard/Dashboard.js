@@ -51,26 +51,7 @@ const Dashboard = () => {
                                 <NavLink exact to={`${url}`} activeStyle={style} style={{ textDecoration: 'none' }}>Profile</NavLink>
                             </h4>
                         </div>
-                        <div className='drawer-list-item py-3 border-dark border-bottom'>
-                            <h4 className='text-center m-0'>
-                                <NavLink exact to={`${url}/my-order`} activeStyle={style} style={{ textDecoration: 'none' }}>My Orders</NavLink>
-                            </h4>
-                        </div>
-                        <div className='drawer-list-item py-3 border-dark border-bottom'>
-                            <h4 className='text-center m-0'>
-                                <NavLink exact to={`${url}/payment`} activeStyle={style} style={{ textDecoration: 'none' }}>Payment</NavLink>
-                            </h4>
-                        </div>
-                        <>
-                            <div className='drawer-list-item py-3 border-dark border-bottom'>
-                                <h4 className='text-center m-0'>
-                                    <NavLink exact to={`${url}/review`} activeStyle={style} style={{ textDecoration: 'none' }}>Review</NavLink>
-                                </h4>
-                            </div>
-
-                        </>
-
-                        {admin && <>
+                        {admin ? <>
 
                             <div className='drawer-list-item py-3 border-dark border-bottom'>
                                 <h4 className='text-center m-0'>
@@ -93,6 +74,26 @@ const Dashboard = () => {
                                 </h4>
                             </div>
                         </>
+                            :
+                            <>
+                                <div className='drawer-list-item py-3 border-dark border-bottom'>
+                                    <h4 className='text-center m-0'>
+                                        <NavLink exact to={`${url}/my-order`} activeStyle={style} style={{ textDecoration: 'none' }}>My Orders</NavLink>
+                                    </h4>
+                                </div>
+                                <div className='drawer-list-item py-3 border-dark border-bottom'>
+                                    <h4 className='text-center m-0'>
+                                        <NavLink exact to={`${url}/payment`} activeStyle={style} style={{ textDecoration: 'none' }}>Payment</NavLink>
+                                    </h4>
+                                </div>
+
+                                <div className='drawer-list-item py-3 border-dark border-bottom'>
+                                    <h4 className='text-center m-0'>
+                                        <NavLink exact to={`${url}/review`} activeStyle={style} style={{ textDecoration: 'none' }}>Review</NavLink>
+                                    </h4>
+                                </div>
+                            </>
+
                         }
                         <div className='drawer-list-item py-3 border-dark border-bottom'>
                             <h4 className='text-center m-0' onClick={logOut}>

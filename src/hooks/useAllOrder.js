@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "./useAuth";
-
 const useAllOrder = () => {
-    const { token, user, isLoadingUser } = useAuth();
+    const { token, user, isLoading } = useAuth();
     const [allOrders, setAllOrders] = useState([]);
     const [isLoadingAllOrder, setIsLoadingAllOrder] = useState(true);
     useEffect(() => {
-        if (!isLoadingUser && token) {
+        if (!isLoading && token) {
+            console.log(isLoading, token);
             fetch(`https://garir-bazar.herokuapp.com/orders`, {
                 headers: {
                     'authorization': `Bearer ${token}`
@@ -38,8 +38,7 @@ const useAllOrder = () => {
                     setIsLoadingAllOrder(false);
                 });
         }
-
-    }, [user.email, token, isLoadingUser])
+    }, [user.email, token, isLoading])
     return { isLoadingAllOrder, allOrders, setAllOrders }
 }
 export default useAllOrder;
