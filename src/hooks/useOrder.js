@@ -8,8 +8,9 @@ const useOrder = () => {
     const [isLoadingOrder, setIsLoadingOrder] = useState(true);
 
     useEffect(() => {
+        // erkm (!isLoadingUser && token) conditio slo change korc seta ( token )
         if (!isLoadingUser && token) {
-            fetch(`http://localhost:5000/myOrder?email=${user.email}`, {
+            fetch(`https://garir-bazar.herokuapp.com/myOrder?email=${user.email}`, {
                 headers: {
                     'authorization': `Bearer ${token}`
                 }
@@ -26,7 +27,7 @@ const useOrder = () => {
                         // const ids = Object.keys(iterator.product);
                         const ids = [iterator.product];
                         //console.log('ids ', ids);
-                        axios.post('http://localhost:5000/service/byId', ids)
+                        axios.post('https://garir-bazar.herokuapp.com/service/byId', ids)
                             .then(res => {
                                 //console.log(res.data)
                                 iterator.items = res.data;
@@ -34,6 +35,7 @@ const useOrder = () => {
                             })
                         newArr.push(iterator)
                     }
+                    console.log('newArr', newArr);
                     setOrders(newArr);
                     setIsLoadingOrder(false);
                 });

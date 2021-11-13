@@ -5,7 +5,7 @@ const useCar = () => {
     const [isLoadingCar, setIsLoadingCar] = useState(true);
     //''
     useEffect(() => {
-        fetch('http://localhost:5000/services/car')
+        fetch('https://garir-bazar.herokuapp.com/services/car')
             .then(resp => resp.json())
             .then(data => {
                 setCar(data);

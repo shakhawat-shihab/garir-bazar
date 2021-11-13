@@ -5,7 +5,7 @@ const useReview = () => {
     const [isLoadingReview, setIsLoadingReview] = useState(true);
     //''
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://garir-bazar.herokuapp.com/reviews')
             .then(resp => resp.json())
             .then(data => {
                 setReview(data);

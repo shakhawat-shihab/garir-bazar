@@ -15,7 +15,7 @@ const ReviewWrite = () => {
         data.rating = rating;
         data.img = user?.photoURL || ' https://i.ibb.co/X2sVX2b/profile.png ';
         //console.log(data);
-        axios.post('http://localhost:5000/submitReview', data)
+        axios.post('https://garir-bazar.herokuapp.com/submitReview', data)
             .then(res => {
                 if (res.data.insertedId) {
                     swal({

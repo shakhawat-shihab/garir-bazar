@@ -7,7 +7,7 @@ const AddService = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         //console.log(data);
-        axios.post('http://localhost:5000/addService', data)
+        axios.post('https://garir-bazar.herokuapp.com/addService', data)
             .then(res => {
                 // console.log('new ', res?.data?.insertedId);
                 // console.log('already have this id', res?.data);

@@ -81,7 +81,7 @@ const useFirebase = () => {
                     .then(idToken => {
                         setToken(idToken);
                     })
-                fetch(`http://localhost:5000/users/${user.email}`)
+                fetch(`https://garir-bazar.herokuapp.com/users/${user.email}`)
                     .then(res => res.json())
                     .then(data => {
                         //console.log('email  address: ', user.email, ' isAdmin: ', data.admin)
@@ -97,11 +97,11 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
     //useEffect te  user.email asar agei ekbar run hy a jasse, jar fole  
-    // http://localhost:5000/users/undefined ei link fetch korte partase na.
+    // https://garir-bazar.herokuapp.com/users/undefined ei link fetch korte partase na.
     // tai user load howar por e amdr admin kina check korte hbe
     /*useEffect(() => {
         setIsLoadingAdmin(true);
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://garir-bazar.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(user.email, data.admin)
@@ -113,7 +113,7 @@ const useFirebase = () => {
     function saveUser(email, displayName, method) {
         const user = { email, displayName };
         console.log(email, displayName);
-        fetch('http://localhost:5000/users', {
+        fetch('https://garir-bazar.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

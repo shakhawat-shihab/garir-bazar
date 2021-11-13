@@ -18,7 +18,7 @@ const ManageServices = () => {
         })
             .then((x) => {
                 if (x) {
-                    fetch(`http://localhost:5000/deleteService/${id}`, {
+                    fetch(`https://garir-bazar.herokuapp.com/deleteService/${id}`, {
                         method: 'delete'
                     })
                         .then(res => res.json())
