@@ -23,6 +23,7 @@ const Dashboard = () => {
     //for nested routing
     let { path, url } = useRouteMatch();
     //console.log(path, url);
+
     const style = {
         color: 'red'
     }

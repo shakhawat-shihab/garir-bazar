@@ -14,7 +14,7 @@ const Review = () => {
     };
     return (
         <div className='my-5'>
-            <h1 className='text-center fw-bold my-4'>Happy Client's Review</h1>
+            <h1 className='text-center fw-bold pb-5'>Happy Client's Review</h1>
             {
                 isLoadingReview ?
                     <div className='my-3 text-center' >

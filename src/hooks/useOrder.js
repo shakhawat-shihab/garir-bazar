@@ -10,7 +10,7 @@ const useOrder = () => {
     useEffect(() => {
         // erkm (!isLoadingUser && token) conditio slo change korc seta ( token )
         if (!isLoading && token) {
-            console.log(isLoading, token);
+            //console.log(isLoading, token);
             fetch(`https://garir-bazar.herokuapp.com/myOrder?email=${user.email}`, {
                 headers: {
                     'authorization': `Bearer ${token}`
@@ -36,7 +36,7 @@ const useOrder = () => {
                             })
                         newArr.push(iterator)
                     }
-                    console.log('newArr', newArr);
+                    //console.log('newArr', newArr);
                     setOrders(newArr);
                     setIsLoadingOrder(false);
                 });

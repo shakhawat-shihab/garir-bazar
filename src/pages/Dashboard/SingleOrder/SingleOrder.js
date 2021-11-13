@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 const SingleOrder = (props) => {
     const { register, handleSubmit } = useForm();
-    console.log(props.from);
+    // console.log(props.data.items);
     const { _id, name, transaction, address, division, email, status } = props.data;
     const onSubmit = data => {
         //console.log(data);
