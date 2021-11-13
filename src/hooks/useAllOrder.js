@@ -7,7 +7,7 @@ const useAllOrder = () => {
     const [isLoadingAllOrder, setIsLoadingAllOrder] = useState(true);
     useEffect(() => {
         if (!isLoading && token) {
-            console.log(isLoading, token);
+            //console.log(isLoading, token);
             fetch(`https://garir-bazar.herokuapp.com/orders`, {
                 headers: {
                     'authorization': `Bearer ${token}`

@@ -1,0 +1,8 @@
+.single-speciality:hover .speciality-img{
+    transform: scale(1.1,1.1);
+    /* background-color: black; */
+}
+.single-speciality:hover {
+    box-shadow: 3px 3px 15px lightgray;
+    /* background-color: black; */
+}

@@ -45,7 +45,7 @@ const ReviewWrite = () => {
                                 user.photoURL ?
                                     <img src={user.photoURL} alt="" className='rounded-circle' width='120px' />
                                     :
-                                    <img src='https://i.ibb.co/X2sVX2b/profile.png' alt="" className='rounded' />
+                                    <img src='https://i.ibb.co/X2sVX2b/profile.png' alt="" className='rounded' width='120px' />
                             }
                         </div>
                         <form onSubmit={handleSubmit(onSubmit)}>
